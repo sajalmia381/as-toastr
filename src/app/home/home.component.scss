@@ -1,0 +1,10 @@
+.btn {
+  &-group {
+    display: flex;
+    gap: 16px;
+  }
+
+  &-notification {
+    background-color: rgb(82, 186, 204);
+  }
+}

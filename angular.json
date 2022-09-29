@@ -25,9 +25,15 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets/",
+              {
+                "glob": "**/*",
+                "input": "projects/as-toastr/src/assets",
+                "output": "assets/as-toastr"
+              }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -96,9 +102,41 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "as-toastr": {
+      "projectType": "library",
+      "root": "projects/as-toastr",
+      "sourceRoot": "projects/as-toastr/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/as-toastr/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/as-toastr/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/as-toastr/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/as-toastr/src/test.ts",
+            "tsConfig": "projects/as-toastr/tsconfig.spec.json",
+            "karmaConfig": "projects/as-toastr/karma.conf.js"
           }
         }
       }
